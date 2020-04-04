@@ -17,9 +17,7 @@ class Employee {
       return "Employee";
   }
 }
-module.exports = Employee;
 
-// PASS  ./Employee.test.js
 // ✓ Can instantiate Employee instance (2ms)
 // ✓ Can set name via constructor arguments
 // ✓ Can set id via constructor argument (1ms)
@@ -28,3 +26,5 @@ module.exports = Employee;
 // ✓ Can get id via getId()
 // ✓ Can get email via getEmail() (1ms)
 // ✓ getRole() should return "Employee"
+
+module.exports = Employee;
