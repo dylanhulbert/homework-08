@@ -41,6 +41,63 @@ const engQuestions = () => {
     })
 }
 
+const internQuestions = () => {
+  inquirer.prompt([
+    {
+    type: "input",
+    name: "name",
+    message: "Intern's name?"
+    },
+    {
+    type: "input",
+    name: "id",
+    message: "Intern's ID?"
+    },
+    {
+    type: "input",
+    name: "email",
+    message: "Intern's email?"
+    },
+    {
+    type: "input",
+    name: "school",
+    message: "Intern's school?"
+    }
+    ]).then(answer => {
+        const intern = new Intern(answer.name, answer.id, answer.email, answer.school);
+        team.push(intern);
+        addMore();
+    })
+}
+
+const mngrQuestions = () => {
+  inquirer.prompt([
+    {
+    type: "input",
+    name: "name",
+    message: "Manager's name?"
+    },
+    {
+    type: "input",
+    name: "id",
+    message: "Manager's ID?"
+    },
+    {
+    type: "input",
+    name: "email",
+    message: "Manager's email?"
+    },
+    {
+    type: "input",
+    name: "officeNumber",
+    message: "Manager's office number?"
+    },
+    ]).then(answer => {
+      const manager = new Manager(answer.name, answer.id, answer.email, answer.officeNumber);
+        team.push(manager);
+          addMore();
+      })
+}
 
 const addMore = () => {
   inquirer.prompt({
@@ -55,7 +112,7 @@ const addMore = () => {
           let html = render(team);
             fs.writeFile(outputPath, html, function (err) {
               if (err) throw err;
-              console.log("Employee added.");
+              console.log("Employee(s) added.");
             });
         };
     })
